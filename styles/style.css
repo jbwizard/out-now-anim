@@ -7,6 +7,7 @@ body{
 }
 
 .center{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +19,23 @@ h1{
     text-align: center;
     text-transform: uppercase;
 }
+
+h1:hover{
+    cursor: pointer;
+    animation-name: h1_anim;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-iteration-count: 2;
+    will-change: transform;
+}
+
+
+@keyframes h1_anim{
+    0% {color: #F47D51;}
+    50% {color:#EA7BB1; transform: scale(1.1,1.1);}
+    100% {color: #F47D51;}
+}
+
 
 .animate__fadeIn{
     animation-duration: 3s;
@@ -41,22 +59,18 @@ h2{
     line-height: 20px;
     text-align: center;
     text-transform: uppercase;
-}
-
-
-@keyframes btn_animation{
-    0% {background-color: #F47D51;}
-    50% {background-color:#EA7BB1; transform: scale(1.1,1.1);}
-    100% {background-color: #F47D51;}
+    transition-property: background;
+    transition-duration: 2s;
+    transition-timing-function: ease;
 }
 
 .btn:hover{
     cursor: pointer;
-    animation-name: btn_animation;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-delay: 0.5s;
-    animation-timing-function: ease-in-out;
+    transform: scale(1.1,1.1);
+    background-color:#F47D51;
+    border-radius: 20px;
+    transition: all 0.4s;
+    transition-timing-function: ease ease-in-out;
 }
 
 .artwork_svg{
@@ -67,3 +81,27 @@ h2{
     margin-bottom: -80px;
 }
 
+
+/*BIRD ANIM*/
+
+.bird_container{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    border: 1px black solid;
+}
+
+.bird{
+    width: 180px;
+    transform: translate(100px,500px);
+    animation-name: flying;
+    animation-duration: 5s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flying{
+    0%{transform: translate(100px,500px);}
+    100%{transform: translate(2000px,0px);}
+}
