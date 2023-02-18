@@ -4,6 +4,9 @@ body{
     font-style: normal;
     font-weight: 900;
     color: #F47D51;
+}
+
+.center{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +17,11 @@ h1{
     line-height: 92px;
     text-align: center;
     text-transform: uppercase;
+}
+
+.animate__fadeIn{
+    animation-duration: 3s;
+    animation-delay: 1ms;
 }
 
 h2{
@@ -33,6 +41,22 @@ h2{
     line-height: 20px;
     text-align: center;
     text-transform: uppercase;
+}
+
+
+@keyframes btn_animation{
+    0% {background-color: #F47D51;}
+    50% {background-color:#EA7BB1; transform: scale(1.1,1.1);}
+    100% {background-color: #F47D51;}
+}
+
+.btn:hover{
+    cursor: pointer;
+    animation-name: btn_animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 .artwork_svg{
