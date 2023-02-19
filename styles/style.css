@@ -4,6 +4,9 @@ body{
     font-style: normal;
     font-weight: 900;
     color: #F47D51;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .center{
@@ -14,7 +17,7 @@ body{
 }
 
 h1{
-    font-size: 70px;
+    font-size: 60px;
     line-height: 92px;
     text-align: center;
     text-transform: uppercase;
@@ -43,10 +46,21 @@ h1:hover{
 }
 
 h2{
-    font-size: 28px;
+    font-size: 25px;
     line-height: 35px;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+h2:hover{
+    color: white;
+    animation: rotate 2s ease infinite alternate both;
+}
+
+@keyframes rotate{
+    from {filter: invert(100%);}
+    to {filter:invert(0%)}
 }
 
 .btn{
@@ -73,12 +87,13 @@ h2{
     transition-timing-function: ease ease-in-out;
 }
 
-.artwork_svg{
+
+.artwork{
     box-sizing: border-box;
-    max-width: 408px;
-    height: 541px;
-    margin-top: -110px;
-    margin-bottom: -80px;
+    max-width: 328px;
+    height: 433px;
+    margin-top: -40px;
+    margin-bottom: -20px;
 }
 
 
@@ -88,20 +103,96 @@ h2{
     width: 100%;
     height: 100vh;
     position: absolute;
-    border: 1px black solid;
 }
 
 .bird{
     width: 180px;
     transform: translate(100px,500px);
     animation-name: flying;
-    animation-duration: 5s;
+    animation-duration: 3.5s;
     animation-delay: 0.5s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
 }
 
 @keyframes flying{
     0%{transform: translate(100px,500px);}
-    100%{transform: translate(2000px,0px);}
+    100%{transform: translate(1500px,0px); ;}
+}
+
+
+/*STARS ANIM*/
+
+.stars_container{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+.stars, .stars_one, .stars_two, .stars_three, .stars_four, .stars_five, .stars_six{
+    fill: white;
+    opacity: 0;
+    width: 20px;
+}
+
+.star-blink{
+    animation-name: star-blink; 
+    animation-duration: 5s;
+    animation-delay: 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.stars{
+    transform: translate(100px,50px)
+}
+
+.stars_one{
+    transform: translate(200px, 100px);
+}
+
+.stars_two{
+    transform: translate(400px, 100px);
+}
+
+.stars_three{
+    transform: translate(1000px, 400px);
+}
+
+.stars_four{
+    transform: translate(1200px, 100px);
+}
+
+.stars_five{
+    transform: translate(150px, 300px);
+}
+
+.stars_six{
+    transform: translate(1250px, 550px);
+}
+
+@keyframes star-blink{
+    0% {opacity: 0;}
+    50% {opacity: 100%;}
+    100% {opacity: 0;}
+}
+
+/*
+.animate__animated, .animate__slideInLeft{
+    animation-duration: 1.8s;
+    animation-delay: 0.5s;
+}
+*/
+
+.artwork:hover{
+    cursor: pointer;
+    animation: fx-artwork 2s ease-in-out;
+}
+
+@keyframes fx-artwork{
+    0% {opacity: 100%;}
+    25% {transform: translateX(10px); opacity: 30%;}
+    50% {opacity: 100%;}
+    75% {transform: translateX(-10px); opacity: 30%;}
+    100% {opacity: 100%;}
 }
