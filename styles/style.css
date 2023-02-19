@@ -56,10 +56,10 @@ h2{
 
 h2:hover{
     color: white;
-    animation: rotate 2s ease infinite alternate both;
+    animation: invert 2s ease infinite alternate both;
 }
 
-@keyframes rotate{
+@keyframes invert{
     from {filter: invert(100%);}
     to {filter:invert(0%)}
 }
