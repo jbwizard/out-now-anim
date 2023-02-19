@@ -1,3 +1,4 @@
+
 body{
     background-color: #F6B21A;
     font-family: "aktiv-grotesk-extended", sans-serif;
@@ -132,43 +133,21 @@ h2:hover{
     fill: white;
     opacity: 0;
     width: 20px;
+    position:absolute;
 }
 
 .star-blink{
-    animation-name: star-blink; 
-    animation-duration: 5s;
-    animation-delay: 3s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+    animation-name: star-blink, rotate;
+    animation-duration: 5s, 2s;
+    animation-delay: 2s, 1s;
+    animation-timing-function: ease, linear;
+    animation-iteration-count: infinite, infinite;
+    animation-fill-mode: both, both;
 }
 
-.stars{
-    transform: translate(100px,50px)
-}
-
-.stars_one{
-    transform: translate(200px, 100px);
-}
-
-.stars_two{
-    transform: translate(400px, 100px);
-}
-
-.stars_three{
-    transform: translate(1000px, 400px);
-}
-
-.stars_four{
-    transform: translate(1200px, 100px);
-}
-
-.stars_five{
-    transform: translate(150px, 300px);
-}
-
-.stars_six{
-    transform: translate(1250px, 550px);
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(360deg)}
 }
 
 @keyframes star-blink{
@@ -176,6 +155,39 @@ h2:hover{
     50% {opacity: 100%;}
     100% {opacity: 0;}
 }
+
+
+.stars_one{
+    top: 50px;
+    left: 100px;
+}
+
+
+.stars_two{
+    top: 100px;
+    left: 400px;
+}
+
+.stars_three{
+    top: 400px;
+    left: 1000px;
+}
+
+.stars_four{
+    top: 100px;
+    left: 1200px;
+}
+
+.stars_five{
+    top: 300px;
+    left: 150px;
+}
+
+.stars_six{
+    top: 550px;
+    left: 1250px;
+}
+
 
 /*
 .animate__animated, .animate__slideInLeft{
@@ -186,13 +198,11 @@ h2:hover{
 
 .artwork:hover{
     cursor: pointer;
-    animation: fx-artwork 2s ease-in-out;
+    animation: fx-artwork 2s ease-in-out infinite;
 }
 
 @keyframes fx-artwork{
-    0% {opacity: 100%;}
-    25% {transform: translateX(10px); opacity: 30%;}
-    50% {opacity: 100%;}
-    75% {transform: translateX(-10px); opacity: 30%;}
-    100% {opacity: 100%;}
+    0% {scale: 1; opacity: 100%;}
+    50% {scale: 0.9; filter:hue-rotate(50deg);}
+    100% {scale: 1; opacity: 100%;}
 }
